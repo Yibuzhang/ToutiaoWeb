@@ -17,6 +17,10 @@
         <setting name="useGeneratedKeys" value="true"/>
     </settings>
 
+    <typeAliases>
+        <typeAlias alias="ZcyUser" type="com.nowcoder.model.ZcyUser"></typeAlias>
+    </typeAliases>
+
     <!-- Continue going here -->
 
 </configuration>

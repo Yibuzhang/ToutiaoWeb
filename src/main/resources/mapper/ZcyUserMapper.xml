@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ZcyUser">
+
+    <sql id="table">
+        zcy_user
+    </sql>
+    
+    <sql id="cols">
+        id,name,flower_name,age,department
+    </sql>
+
+    <sql id="values">
+        #{id},#{name},#{floweName},#{age},#{department}
+    </sql>
+
+    <insert id="addUser" parameterType="ZcyUser" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO
+        <include refid="tb"></include>
+        (
+        <include refid="cols"></include>
+        )
+        VALUES
+        (
+        <include refid="values"></include>
+        )
+    </insert>
+
+    <update id="updateFlowerName" parameterType="ZcyUser">
+        UPDATE
+        <include refid="tb"></include>
+        <set>
+            flower_name=#{flowerName}
+        </set>
+    </update>
+
+    <select id="selectByFlowerName" parameterType="flowerName">
+        SELECT
+        <include refid="cols"></include>
+        FROM
+        <include refid="tb"></include>
+        WHERE flower_name=#{flowerName}
+    </select>
+
+    <select id="selectById" parameterType="id">
+        SELECT
+        <include refid="cols"></include>
+        FROM
+        <include refid="tb"></include>
+        WHERE id=#{id}
+    </select>
+
+</mapper>
